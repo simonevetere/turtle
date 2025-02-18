@@ -1,0 +1,40 @@
+local function posizionaTerra(blocchi)
+  local blocchiPosizionati = 0
+  local slotTerra = -1
+
+  -- Trova uno slot con blocchi di terra
+  for i = 1, 16 do
+    turtle.select(i)
+    if turtle.getItemName() == "minecraft:dirt" then
+      slotTerra = i
+      break
+    end
+  end
+
+  if slotTerra == -1 then
+    print("La tartaruga non ha blocchi di terra nell'inventario.")
+    return
+  end
+
+  turtle.select(slotTerra)
+
+  while blocchiPosizionati < blocchi do
+    -- Inizia una nuova riga
+    for i = 1, 8 do
+      if blocchiPosizionati < blocchi then
+        turtle.place()
+        blocchiPosizionati = blocchiPosizionati + 1
+        turtle.forward()
+      else
+        break -- Esci dal ciclo interno se abbiamo posizionato tutti i blocchi
+      end
+    end
+
+    -- Torna all'inizio della riga e scendi di un blocco
+    turtle.back(8)
+    turtle.down()
+  end
+end
+
+-- Esempio di utilizzo: posiziona 20 blocchi di terra
+posizionaTerra(20)
