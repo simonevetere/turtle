@@ -3,13 +3,7 @@ local function posizionaTerra(blocchi)
   local slotTerra = -1
 
   -- Trova uno slot con blocchi di terra
-  for i = 1, 16 do
-    turtle.select(i)
-    if turtle.getItemName() == "minecraft:dirt" then
-      slotTerra = i
-      break
-    end
-  end
+  turtle.select(1)
 
   if slotTerra == -1 then
     print("La tartaruga non ha blocchi di terra nell'inventario.")
