@@ -1,16 +1,8 @@
 local function posizionaTerra(blocchi)
   local blocchiPosizionati = 0
-  local slotTerra = -1
 
   -- Trova uno slot con blocchi di terra
   turtle.select(1)
-
-  if slotTerra == -1 then
-    print("La tartaruga non ha blocchi di terra nell'inventario.")
-    return
-  end
-
-  turtle.select(slotTerra)
 
   while blocchiPosizionati < blocchi do
     -- Inizia una nuova riga
